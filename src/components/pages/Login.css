@@ -1,58 +1,76 @@
 /* Login.css */
 
 .generate {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    min-height: 100vh;
-    margin: 0;
-    background-color: #f5f5f5; /* Color de fondo */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  margin: 0;
+  background-color: rgb(252, 254, 254); /* Color de fondo */
+  position: relative;
+}
+
+.bright-ball {
+  position: absolute;
+  background-color: rgb(5, 22, 149); /* Color de las bolas brillantes */
+  width: 240px; /* Tamaño de las bolas */
+  height: 240px;
+  border-radius: 50%;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(157, 156, 156, 0.8);
   }
-  
-  .container-log {
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    max-width: 400px;
-    text-align: center;
-    transform: translateY(100px); /* Empieza escondido */
-    transition: transform 0.3s ease-in-out;
+  to {
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.8), 0 0 80px rgba(238, 241, 238, 0.8);
   }
-  
-  .container-log.active {
-    transform: translateY(0); /* Muestra con animación */
-  }
-  
-  .container-log input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: none;
-    border-bottom: 1px solid #ccc; /* Línea inferior */
-    background: transparent;
-    outline: none;
-  }
-  
-  .container-log button {
-    width: 100%;
-    padding: 10px;
-    background: #4285f4; /* Color de botón de Google */
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background 0.2s;
-  }
-  
-  .container-log button:hover {
-    background: #3c77f1; /* Color de botón al pasar el ratón */
-  }
-  
-  .container-log h2 {
-    margin: 0;
-    font-size: 28px;
-    color: #333; /* Color del título */
-  }
-  
+}
+
+.container-log {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 400px;
+  text-align: center;
+  transform: translateY(100px); /* Empieza escondido */
+  transition: transform 0.3s ease-in-out;
+}
+
+.container-log.active {
+  transform: translateY(12px); /* Muestra con animación */
+}
+
+.container-log input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-bottom: 1px solid #ccc; /* Línea inferior */
+  background: transparent;
+  outline: none;
+}
+
+.container-log button {
+  width: 100%;
+  padding: 10px;
+  background: #4285f4; /* Color de botón de Google */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.container-log button:hover {
+  background: #3c77f1; /* Color de botón al pasar el ratón */
+}
+
+.container-log h2 {
+  margin: 0;
+  font-size: 28px;
+  color: #333; /* Color del título */
+}

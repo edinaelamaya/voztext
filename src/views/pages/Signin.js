@@ -13,6 +13,7 @@ import logo from '../../assets/images/logo-signin.png'
 import VoiceRecognition from '../../components/VoiceRecognition'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import './logins.css'
 import validator from 'validator'
 import { authentication } from '../../connections/usuarioDispatch'
 
@@ -30,28 +31,26 @@ function Signin() {
     const handleCommand = (command) => {
         if (command.includes('michelle usuario')){
           console.log("entre a usuario")
-          const nuevoUsuario = command.replace('michelle usuario', '').replace(/\s+/g, ''); // Reemplazar con la lógica real de obtención del nuevo usuario
+          const nuevoUsuario = command.replace('michelle usuario', '').replace(/\s+/g, ''); 
           setUsername((prevUsername) => prevUsername + nuevoUsuario);
         }
           // Lógic
         if (command.includes('michelle contraseña')){
           
           console.log("entre a contraseña")
-          const nuevaContraseña = command.replace('michelle contraseña', '').replace(/\s+/g, ''); // Puedes reemplazar esto con la lógica real de obtención de la nueva contraseña
+          const nuevaContraseña = command.replace('michelle contraseña', '').replace(/\s+/g, ''); 
           setPassword((prevPassword) => prevPassword + nuevaContraseña);
         }
         
         if (command =='michelle iniciar'){
           console.log("entre a iniciar")
-          // Lógica para manejar el comando "michelle iniciar"
           enviarFormulario();
         }
 
     };
 
     const enviarFormulario = () => {
-      // Lógica para enviar la solicitud al backend con axios
-      // ...
+     
       console.log("enviarFormulario password",password)
       console.log("entre a enviarFormulario username",username)
       fetch('http://localhost:4000/api/auth/login', {
@@ -66,25 +65,23 @@ function Signin() {
       })
         .then(response => {
           if (response.ok) {
-            // La solicitud fue exitosa, puedes redirigir al usuario a la página de inicio (home)
             console.log('Inicio de sesión exitoso');
-            window.location.href = '/documentos'; // Cambia '/home' a la ruta correcta de tu página de inicio
+            window.location.href = '/documentos'; 
           } else {
-            // La solicitud no fue exitosa, maneja el error según tus necesidades
             console.error('Error al iniciar sesión');
           }
         })
         .catch(error => {
           console.error('Error al realizar la solicitud:', error);
         });
-      // Actualizar el estado del formulario después de enviar
     };
 
 
 
  
   return (
-    <div className="generate">
+    <div className="brillant-lines">
+      <div className='movi'></div>
       <CContainer>
           <SigninForm
             errores={errores}
@@ -96,6 +93,7 @@ function Signin() {
             }}
           />
         {errores.respuesta && <CAlert color="danger">{errores.respuesta}</CAlert>}
+       
       </CContainer>
       <VoiceRecognition onCommand={handleCommand} />
     </div>

@@ -21,6 +21,9 @@ function SigninForm(props) {
 
     return (
         <div className='generate'>
+            {[...Array(10)].map((_, index) => (
+                <div key={index} className="bright-ball" style={{ top: `${Math.random() * 100}vh`, left: `${Math.random() * 100}vw` }} />
+            ))}
             <div className='container-log'>
                 <CForm className="text-center" onSubmit={enviarFormulario}>
                     <h2>Iniciar sesion</h2>

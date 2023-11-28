@@ -26,7 +26,7 @@ const AppHeader = () => {
             <CNavLink to="/documentos" component={NavLink}> Editor Documentos </CNavLink>
           </CNavItem>
           <CNavItem>
-            <CNavLink to="/listDoc" component={NavLink}> Mis Documentos </CNavLink>
+            <CNavLink to="/mi-documentos" component={NavLink}> Mis Documentos </CNavLink>
           </CNavItem>
         </CHeaderNav>
         <CHeaderNav className="ms-3">

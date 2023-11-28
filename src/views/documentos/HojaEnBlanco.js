@@ -3,9 +3,12 @@ import {useState, useEffect} from "react"
 // import { PARTIDOSCREADOS_GET_ENDPOINT } from "../../connections/helpers/endpoints";
 import { CContainer , CCardBody, CRow, CCol } from '@coreui/react' 
 import { HojaEnBlanco } from "../../components/hojablanco/hojablanco";
-
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 function Read() {
+    const navegar=useNavigate();
+    const dispatch = useDispatch();
     
     return (
         

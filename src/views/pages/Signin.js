@@ -52,16 +52,30 @@ function Signin() {
     const enviarFormulario = () => {
       // Lógica para enviar la solicitud al backend con axios
       // ...
-      console.log("entre a enviarFormulario password",password)
+      console.log("enviarFormulario password",password)
       console.log("entre a enviarFormulario username",username)
-      dispatch(authentication({username, password}))
-        .then(respuesta=>{
-            navegar("/");
+      fetch('http://localhost:4000/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          usernames: username,
+          passwords: password,
+        }),
+      })
+        .then(response => {
+          if (response.ok) {
+            // La solicitud fue exitosa, puedes redirigir al usuario a la página de inicio (home)
+            console.log('Inicio de sesión exitoso');
+            window.location.href = '/documentos'; // Cambia '/home' a la ruta correcta de tu página de inicio
+          } else {
+            // La solicitud no fue exitosa, maneja el error según tus necesidades
+            console.error('Error al iniciar sesión');
+          }
         })
-        .catch(err=>{
-            setErrores({ respuesta: err.response.data });
-            setUsername('');
-            setPassword('');
+        .catch(error => {
+          console.error('Error al realizar la solicitud:', error);
         });
       // Actualizar el estado del formulario después de enviar
     };

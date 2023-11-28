@@ -1,0 +1,21 @@
+/* Estilo para el contenedor de la hoja en blanco */
+.editor-container {
+  border: 1px solid #ccc;
+  height: 676px;
+  padding: 0px;
+  max-width: 1263px;
+  margin: 0 auto;
+  }
+  
+  /* Estilo para el contenido del editor */
+  .DraftEditor-root {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 10px;
+    min-height: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+  }
+  

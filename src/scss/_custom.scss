@@ -1,0 +1,11 @@
+.mi-Link{
+    color: inherit;
+    text-decoration: none;
+}
+
+.mi-CIcon {
+    &:hover {
+      color: $red-primary;
+      cursor: pointer;
+    }
+  }

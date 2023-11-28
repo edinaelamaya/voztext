@@ -126,6 +126,11 @@ function HojaEnBlanco() {
       guardarContenido();
     }
 
+    if (command.includes('michelle salir')) {
+      console.log("guardar")
+      navegar("/signin")
+    }
+
    
   };
 

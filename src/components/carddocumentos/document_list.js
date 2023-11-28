@@ -2,10 +2,13 @@ import React from 'react';
 import docimg from '../../assets/images/documentos.png';
 import './document.css';
 
-function DocumentCard({document}) {
+function DocumentCard({document, onOpenDocument}) {
   
   console.log("llego document",document)
-  const { title, contenido, descriccion, onClick } = document;
+  const {id_document, title, contenido, descriccion } = document;
+  const handleOpenDocument = () => {
+    onOpenDocument(id_document);
+  };
   return (
     <div className="document-card">
         <div className='documentsflex'>
@@ -14,7 +17,7 @@ function DocumentCard({document}) {
             <div className="document-info">
                 <h3 className="document-title">{title}</h3>
                 <p className="document-description">{descriccion}</p>
-                <button onClick={onClick}>Ver Documento</button>
+                <button onClick={handleOpenDocument}>Ver Documento</button>
         </div>
       </div>
     </div>

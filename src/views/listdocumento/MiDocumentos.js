@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { CContainer } from "@coreui/react";
 import { DocumentCard } from "../../components/carddocumentos/document_list";
+import {HojaEnBlanco} from "../../components/hojablanco/hojablanco"
 
 const DocumentosCard = () => {
   const [documents, setDocuments] = useState([]);
+  const [selectedDocument, setSelectedDocument] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -31,6 +33,11 @@ const DocumentosCard = () => {
       });
   }, []);
 
+  const handleOpenDocument = (documentId) => {
+    const selected = documents.find((doc) => doc.id_document === documentId);
+    setSelectedDocument(selected);
+  };
+
   return (
     <CContainer className="mt-3 mb-3">
       {loading ? (
@@ -41,8 +48,12 @@ const DocumentosCard = () => {
             <DocumentCard
             key={document.id_document} // Asegúrate de tener una propiedad única, como id_document
             document={document}
+            onOpenDocument={handleOpenDocument}
             />
           ))}
+          {selectedDocument && (
+        <HojaEnBlanco initialContent={selectedDocument.contenido} />
+      )}
         </div>
       )}
     </CContainer>

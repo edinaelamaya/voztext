@@ -13,8 +13,8 @@
 .bright-ball {
   position: absolute;
   background-color: rgb(5, 22, 149); /* Color de las bolas brillantes */
-  width: 240px; /* Tamaño de las bolas */
-  height: 240px;
+  width: 940px; /* Tamaño de las bolas */
+  height: 940px;
   border-radius: 50%;
   animation: glow 2s infinite alternate;
 }
